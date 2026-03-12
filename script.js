@@ -4,6 +4,7 @@ const db = supabase.createClient(dburl, dbkey);
 
 async function d() {
     const { data, error } = await db.from('database').select('*');
-    console.log(data)
+    console.log(data);
+    window.location = "https://geoloup.com";
 }
 d()
