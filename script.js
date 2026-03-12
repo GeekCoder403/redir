@@ -6,3 +6,4 @@ async function d() {
     const { data, error } = await db.from('database').select('*');
     console.log(data)
 }
+d()
