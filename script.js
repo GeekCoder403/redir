@@ -5,6 +5,10 @@ const db = supabase.createClient(dburl, dbkey);
 async function d() {
     const { data, error } = await db.from('database').select('*');
     console.log(data);
-    window.location = "https://geoloup.com";
+    let s = window.location.search;
+    let d = new URLSearchParams(s); 
+    if (!parms.get('debug')) {
+        window.location = "https://geoloup.com";
+    }
 }
 d()
