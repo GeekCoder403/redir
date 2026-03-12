@@ -5,10 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edge Logs</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
   <h1>Edge Logs</h1>
-  <table border="1" id="logsTable">
+  <table id="logsTable">
     <thead>
       <tr>
         <th>Timestamp</th>
@@ -54,14 +68,14 @@
       data.forEach(log => {
         const row = document.createElement('tr');
 
-        // Format timestamp
+        // Format timestamp as hh:mm:ss dd month
         const date = new Date(log.timestamp);
         const formattedTimestamp = date.toLocaleString('en-US', {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
           day: '2-digit',
-          month: 'long'
+          month: 'short'
         });
 
         // Extract data from nested objects
